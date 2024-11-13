@@ -1,3 +1,5 @@
+package client;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -26,7 +28,7 @@ public class Client {
 
     public void sendMessage(String messageToSend) {
         try {
-            bufferedWriter.write(username + ": " + messageToSend);
+            bufferedWriter.write(messageToSend);
             bufferedWriter.newLine();
             bufferedWriter.flush();
         } catch (IOException e) {

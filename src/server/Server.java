@@ -1,4 +1,9 @@
+package server;
+
+import client.ClientHandler;
+
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -11,6 +16,8 @@ public class Server {
 
     public void startServer(){
         try {
+            String ipAddress = InetAddress.getLocalHost().getHostAddress();
+            System.out.println("SERVER: Server started on IP: " + ipAddress);
             while(!serverSocket.isClosed()){
                 Socket socket = serverSocket.accept();
                 ClientHandler clientHandler = new ClientHandler(socket);
